@@ -1,5 +1,4 @@
 selMostSev <- function(cons) {
-
 	sev <- c("transcript_ablation", 
 		 "splice_acceptor_variant", 
 		 "splice_donor_variant", 
