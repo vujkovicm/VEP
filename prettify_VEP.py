@@ -8,9 +8,8 @@ import string
 import pandas as pd
 import json
 
-
 ###=================================
-### test values for parameters
+### test data
 
 if False:
 	in_file_path = '../output/region.loftee'
@@ -24,12 +23,6 @@ if True:
         out_file_path = sys.argv[2]
 
 ###=================================
-
-#if os.path.exists(out_file_path) and out_file_path != in_file_path:
-#        os.remove(out_file_path)
-
-#in_file_path = "/project/saleheenlab/snakemake/VEP/1_vep/output/test.txt"
-#out_file_path = '../output/test_main.tab'
 
 # import table
 df = pd.read_table(in_file_path, sep = "\t", comment = "#", header = None)
@@ -50,5 +43,5 @@ tmp = pd.DataFrame([json.loads(line.strip()) for line in tmp.Extra])
 # merge fixed with variable columns
 df = pd.concat([df, tmp], axis = 1)
 
-df.to_csv(out_file_path, sep='\t', na_rep=".", index = False, header = True)
+df.to_csv(out_file_path, sep = '\t', na_rep = ".", index = False, header = True)
 
